@@ -27,13 +27,15 @@ pipeline {
         stage('Push') {
             steps {
                 script{
-                        docker.withRegistry('<Your AWS ECR URL>', 'ecr:<Your ECR Zone>:<Your Jenkins Credentials>') {
+                        docker.withRegistry('664968243982.dkr.ecr.us-east-1.amaxonaws.com/nsd-demo1', 'ecr:us-east-1:nilesh-ecr') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                     }
                 }
             }
         }
+        
+        
         
         
     }
